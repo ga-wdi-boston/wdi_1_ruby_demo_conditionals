@@ -1,14 +1,14 @@
 ![General Assembly Logo](http://i.imgur.com/ke8USTq.png)
 
-# Assignment Name (Ruby String Lab)
+# Ruby Conditionals Demo
 
 ## Objectives
 
 By the end of this, students should be able to:
 
-- Objective 1
-- Objective 2
-- Objective 3
+- Select the proper conditional statement (if, if/else, unless)
+- Predict the results of a conditional statement, given the value of variables
+- Write small programs using conditional statements
 
 ## Instructions
 
@@ -22,18 +22,9 @@ y = 3
 puts x + y
 ```
 
-## Bonus (Optional Section)
-
-If you're looking for extra challenge or practice once you've completed the above, try to...
-
-## Notes
-
-Gotcha's and extra information
-
 ## Additional Resources
 
 List additional related resources such as videos, blog posts and official documentation.
 
-- Item 1
-- Item 2
-- Item 3
+- [Ruby Core Documentation: Control Expressions](http://www.ruby-doc.org/core-2.2.0/doc/syntax/control_expressions_rdoc.html)
+- [Ruby Explained: Conditionals and Flow Control](http://www.eriktrautman.com/posts/ruby-explained-conditionals-and-flow-control)
