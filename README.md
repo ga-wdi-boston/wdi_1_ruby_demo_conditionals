@@ -178,6 +178,10 @@ end
 
 Avoid explicitly return `true` and `false` in a ternary. This is the most uselss ternary expression ever written: `x ? true : false`. If `x` is truthy, the same thing is accomplished by evaluating `x` itself.
 
+## Your Turn
+
+It's time to make some chocolate! Inspect the `lib/chocolate.rb` file for instructions on how to make chocolate. You should also read `spec/chocolate_spec.rb` for an idea of how you're expected to use the method `can_i_make_chocolate?`. Your task is to fill in the body of the method using conditional logic. Frequently run your tests and check output to help with any syntax errors and to check for correctness.
+
 ## Additional Resources
 
 - [Ruby Core Documentation: Control Expressions](http://www.ruby-doc.org/core-2.2.0/doc/syntax/control_expressions_rdoc.html)
