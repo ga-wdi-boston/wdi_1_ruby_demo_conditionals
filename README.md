@@ -68,8 +68,9 @@ Sometimes, we want to execute a block if the condition is **false**. There are t
 favorite_food = "strawberry"
 like_fruit? = false
 
-# if not like_fruit?
-unless like_fruit?
+# if not like_fruit?  # weird to say
+# if !like_fruit?     # weird to read
+unless like_fruit?    # better
   favorite_food = "rhubarb"
 end
 ```
@@ -82,7 +83,100 @@ Just remember that `unless` is the opposite of `if`.
 
 Try reading your code out loud, translating to English. Which way sounds better to your ear: using `not` or `unless`?
 
+## Comparison Operators (Comparators)
+
+Often we will want to compare two objects in ruby. The following comparison operators will return either `true` or `false` based on the values compared. This behavior makes them useful for control flow.
+
+- `==` (equal)
+- `!=` (not equal)
+- `<` (less than)
+- `>` (greater than)
+- `>=` (greater than or equal to)
+- `<=` (less than or equal to)
+
+Sometimes reading these can be tricky, especially if they're combined with `unless` or logical operators like `or`, covered in the next section. One trick I've found to help me understand them is to convert them into an English question. For example, I read `x == y` as "Are the values of `x` and `y` the same?". Use the following list as a handy reference if we get stuck.
+
+- `==` Are the values of `x` and `y` the same?
+- `!=` Are the values of `x` and `y` different?
+- `<` Is the value of `x` less than the value of `y`?
+- `>` Is the value of `x` greater than the value of `y`?
+- `>=` Is the value of `x` greater than or equal to the value of `y`?
+- `<=` Is the value of `x` less than or equal to the value of `y`?
+
+For each of these questions, an answer of "yes" indicates the comparison operator will return `true`, while an answer of "no" indicates it will return `false`.
+
+### Bonus
+
+Research the `<=>` method, also known as the spaceship operator. When would you use it, and how would you implement a custom `<=>`? What does `<=>` return?
+
 ## Logical Operators
+
+Logical operators combine truth values according to the laws of logic. For example, if I say "The sky is either blue or green", the statement is true since the sky is blue (only one condition needs to be true). If, on the other hand, I say "The sky is both blue and cloudy", both conditions must apply in order for the statement to be true.
+
+The laws of logic are simple facts, like addition and multiplication facts, and can be memorized from the following table:
+
+| Operator | Statement A | Statement B | Result |
+| -------- | ----------- | ----------- | ------ |
+| AND      | TRUE        | TRUE        | TRUE   |
+| AND      | TRUE        | FALSE       | FALSE  |
+| AND      | FALSE       | TRUE        | FALSE  |
+| AND      | FALSE       | FALSE       | FALSE  |
+| OR       | TRUE        | TRUE        | TRUE   |
+| OR       | TRUE        | FALSE       | TRUE   |
+| OR       | FALSE       | TRUE        | TRUE   |
+| OR       | FALSE       | FALSE       | FALSE  |
+
+Ruby has natural-language logical operators `and` and `or`. These read very nicely, especially in complex conditionals. They have lower precedence than the analogous `&&` and `||` operators, so do **not** use `and` and `or` when doing conditional assignment. Additionally there is `not` or `!`, which flips the truth value of the expression immediately following it.
+
+Ruby is "lazily-evaluated" which means it will return a value as soon as possible from a logical statement. Sometimes this is called "short-circuit" evaluation.
+
+```ruby
+  a = true
+  b = false
+
+  a || b #=> true
+# ^--- exits here
+```
+
+Ruby exits after inspecting the value of `a`, since **any** OR-statement with a single `true` value returns `true`. Likewise, **any** AND-statement with a single `false` must return `false`:
+
+```ruby
+  a = false
+  b = true
+
+  a || b #=> false
+# ^--- exits here
+```
+
+For any other logical statement, ruby must evaluate both values before returning the correct value.
+
+### Bonus
+
+What is conditional assignment?
+
+What is memoization? How does it take advantage of short-circuit evaluation?
+
+## Best Practices
+
+**Don't test true.** Since anything in ruby is true (expect `nil` and `false`), you don't have to test against `true` using the equality operator.
+
+```ruby
+x = true
+
+# BAD
+if x == true
+  # do something
+end
+
+# GOOD
+if x
+  # do something
+end
+
+# The same advice applies, for example, when `x = Object.new` or `x = 4`
+```
+
+Avoid explicitly return `true` and `false` in a ternary. This is the most uselss ternary expression ever written: `x ? true : false`. If `x` is truthy, the same thing is accomplished by evaluating `x` itself.
 
 ## Additional Resources
 
