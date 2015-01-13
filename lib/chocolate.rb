@@ -10,4 +10,5 @@
 # acceptable. Either sugar or articial_sweetener will cut the bitterness of the
 # cocoa.
 def can_i_make_chocolate?(cocoa_powder, cocoa_butter, coconut_oil, sugar, artificial_sweetener)
+  cocoa_powder && (cocoa_butter || coconut_oil) && (sugar || artificial_sweetener)
 end
