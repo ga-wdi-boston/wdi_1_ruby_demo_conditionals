@@ -134,7 +134,7 @@ Ruby is "lazily-evaluated" which means it will return a value as soon as possibl
   a = true
   b = false
 
-  a || b #=> true
+  a or b #=> true
 # ^--- exits here
 ```
 
@@ -144,7 +144,7 @@ Ruby exits after inspecting the value of `a`, since **any** OR-statement with a 
   a = false
   b = true
 
-  a || b #=> false
+  a and b #=> false
 # ^--- exits here
 ```
 
