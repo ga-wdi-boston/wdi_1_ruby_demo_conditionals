@@ -176,7 +176,14 @@ end
 # The same advice applies, for example, when `x = Object.new` or `x = 4`
 ```
 
-Avoid explicitly return `true` and `false` in a ternary. This is the most uselss ternary expression ever written: `x ? true : false`. If `x` is truthy, the same thing is accomplished by evaluating `x` itself.
+Avoid explicitly returning `true` and `false` in a ternary. This is the most uselss ternary expression ever written: `x ? true : false`. If `x` is truthy and you need to turn it explicitly into `true` or `false`, you can use the "double-not" trick:
+
+```ruby
+x = "GA is the best!"
+
+!x #=> false
+!!x #=> true
+```
 
 ## Your Turn
 
